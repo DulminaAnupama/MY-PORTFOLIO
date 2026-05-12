@@ -508,7 +508,55 @@ body:has(button:hover) .cursor-ring {
 }
 
 /* ── CERTIFICATIONS ───────────────────────────────────────────── */
-
+.cert-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.6rem;
+}
+.cert-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.6rem 1.8rem;
+  display: flex; flex-direction: column; gap: 1rem;
+  transition: border-color var(--transition), transform var(--transition),
+              box-shadow var(--transition);
+  position: relative; overflow: hidden;
+}
+.cert-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.cert-card:hover {
+  border-color: rgba(0,229,176,.35); transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(0,0,0,.35);
+}
+.cert-issuer-row { display: flex; align-items: center; gap: .75rem; }
+.cert-issuer-icon {
+  width: 42px; height: 42px; border-radius: 10px;
+  background: rgba(255,255,255,.06); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0;
+}
+.cert-issuer-name { font-size: .75rem; color: var(--muted);
+                    text-transform: uppercase; letter-spacing: .07em; font-weight: 500; }
+.cert-platform    { font-size: .7rem; color: var(--accent); margin-top: 1px; }
+.cert-title { font-family: var(--font-h); font-weight: 600;
+              font-size: 1rem; line-height: 1.35; }
+.cert-meta { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.cert-date { font-size: .75rem; color: var(--muted);
+             display: flex; align-items: center; gap: .35rem; }
+.cert-badge {
+  font-size: .68rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .06em; padding: .22rem .7rem; border-radius: 100px;
+  background: rgba(0,229,176,.1); color: var(--accent);
+  border: 1px solid rgba(0,229,176,.25);
+}
+.cert-link {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .8rem; font-weight: 600; color: var(--accent2);
+  font-family: var(--font-h); transition: color var(--transition), gap var(--transition);
+  margin-top: auto;
+}
+.cert-link:hover { color: var(--accent); gap: .6rem; }
 
 /* ── RESUME BANNER ────────────────────────────────────────────── */
 .resume-banner { border-radius: 24px; background: var(--card);
@@ -1239,6 +1287,39 @@ footer { border-top: 1px solid var(--border); padding: 3rem 2rem;
 <div class="divider"></div>
 
 <!-- ═══════════════════════ CERTIFICATIONS ══════════════════════════ -->
+<section id="certifications" class="section">
+  <div class="container">
+    <div class="sec-label">Achievements</div>
+    <h2 class="sec-title">Certifications</h2>
+    <p class="sec-sub">Professional credentials and course completions that validate my expertise.</p>
+
+    <div class="cert-grid">
+
+      <!-- Microsoft / Coursera – Power BI -->
+      <div class="cert-card reveal">
+        <div class="cert-issuer-row">
+          <div class="cert-issuer-icon">
+            <i class="fa-brands fa-microsoft" style="color:#00a4ef;"></i>
+          </div>
+          <div>
+            <div class="cert-issuer-name">Microsoft</div>
+            <div class="cert-platform">via Coursera</div>
+          </div>
+        </div>
+        <div class="cert-title">Visualization for Data Analysis with Power BI</div>
+        <div class="cert-meta">
+          <span class="cert-date"><i class="fa-regular fa-calendar"></i> 2025</span>
+          <span class="cert-badge">Verified</span>
+        </div>
+        <a href="https://coursera.org/share/5671ef973d23b83ed4d7a4c09da9f6bf"
+           target="_blank" rel="noopener" class="cert-link">
+          View Certificate <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 
 <!-- ═══════════════════════ RESUME ═══════════════════════════════════ -->
